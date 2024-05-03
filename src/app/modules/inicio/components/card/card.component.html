@@ -1,20 +1,38 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-</mat-card>
-  
+<div class="container">
+  <div class="row">
+    <h1>inicio</h1>
+
+    <div class="col">
+
+      <div class="contenido" *ngFor="let i of info">
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{i.nombre}}</mat-card-title>
+            <mat-card-subtitle>{{i.ubicacion}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{i.img}}" alt="Photo of a Shiba Inu" width="900" height="750">
+          <mat-card-content>
+            <p>
+              {{i.atl}}
+            </p>
+            <p>
+              Codigo Postal = {{i.codigoPostal}}
+            </p>            
+            <p>
+              Poblacion = {{i.poblacion}}
+            </p>
+            
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+      </mat-card>
+    
+    </div>
+    
+  </div>
+  </div>
+</div>
