@@ -11,7 +11,8 @@ const routes: Routes = [
   //loadChildren inidica que habra una ruta fija
   //()=>import funcion flecha que importa desde la ruta 
   //.then funcion asincronica del tipo PROMESA
-  {path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)}
+  {path:"",loadChildren:()=>import('./modules/inicio/inicio.module').then(m=>m.InicioModule)},
+  {path:"",loadChildren:()=>import('./modules/producto/producto.module').then(m=>m.ProductoModule)}
 
 ];
 

@@ -1,1 +1,29 @@
-<p>navbar works!</p>
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+      
+    </button>
+    <span>My App</span>
+
+    <button mat-button routerLink="/inicio">inico</button>
+
+    <button mat-button [matMenuTriggerFor]="producto">Menu</button>
+      <mat-menu #producto="matMenu">
+        <button mat-menu-item routerLink="general">Contenido General de los prodctos</button>
+        <button mat-menu-item routerLink="punto_interes_1">apartado 1</button>
+        <button mat-menu-item routerLink="punto_interes_2">apartado 2</button>
+        <button mat-menu-item routerLink="punto_interes_3">apartado 3</button>
+      </mat-menu>
+
+    
+
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  
