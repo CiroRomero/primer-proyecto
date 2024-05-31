@@ -6,4 +6,5 @@ export interface Ciudad {
     ubicacion: string;
     atl: string; 
     img: string;
+    
 }
