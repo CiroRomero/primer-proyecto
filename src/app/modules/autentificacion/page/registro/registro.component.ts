@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
  //agregar un nuevo componente llamado "usuario"
+
+ //importamos la paqueteria de criptacion
+import * as CryptoJS from 'crypto-js';
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',

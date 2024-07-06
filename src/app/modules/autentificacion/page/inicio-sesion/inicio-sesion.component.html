@@ -1,21 +1,23 @@
-<p>hacer el inicio de la misma forma que hice el inicio, llamamdo a los componentes desde el ts en vez de hacerlo del html</p>
-<!--
-  public info: Ciudad[];
+<div class="container">
+  <div class="row">
+      <h1>Inicia Sesión</h1>
 
-  constructor(){
-    this.info = [
-      {
-        id: "",
-        img: "https://media.lmcipolletti.com/p/77595e27ac7dc0ffadc88b3f4fe20bb1/adjuntos/198/imagenes/005/426/0005426711/1200x675/smart/cipolletti-un-drone.jpg",
-        nombre: "Cipolletti",
-        codigoPostal: 8324,
-        poblacion: 87.343,
-        ubicacion: " Cipolletti, Río Negro, Argentina",
-        atl: "Cipolletti es una ciudad ubicada en la provincia de Río Negro, Argentina. Es conocida por ser un importante centro comercial, industrial y de servicios en la región. Se encuentra en el valle del río Negro, cerca de la confluencia con el río Neuquén. La ciudad ha experimentado un crecimiento significativo en las últimas décadas, con un desarrollo económico impulsado por la agricultura, la ganadería, la industria frutícola y la producción de petróleo y gas. Cipolletti también ofrece una variedad de atracciones culturales y recreativas, incluyendo parques, plazas, museos y eventos culturales. Su ubicación estratégica en el Alto Valle del Río Negro la convierte en un importante centro urbano en la región patagónica de Argentina.",
-      },
+      <i class="material-icons" style="font-size: 200px;">person</i>
       
-    ]
-  }
+      <mat-form-field appearance="fill">
+          <mat-label>Ingrese su email:</mat-label>
+          <input [(ngModel)]="usuarioIngresado.email" matInput placeholder="Ej: pepitoperez2022@gmail.com" required>
+      </mat-form-field>
 
-}
--->
+      <mat-form-field>
+          <mat-label>Ingrese su contraseña:</mat-label>
+          <input [(ngModel)]="usuarioIngresado.password" matInput [type]="hide ? 'password' : 'text'" #input minlength="6" required>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-hint align="start">Mínimo:6/{{input.value.length}}</mat-hint>
+      </mat-form-field>
+
+      <button class="boton" mat-raised-button color="primary" (click)="iniciarSesion()">Iniciar Sesión</button>
+  </div>
+</div>

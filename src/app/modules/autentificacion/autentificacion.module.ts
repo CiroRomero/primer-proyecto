@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     RegistroComponent,
     InicioSesionComponent
   ],
-  imports: [
+  imports: [  
     CommonModule,
     AutentificacionRoutingModule,
     MatIconModule,
