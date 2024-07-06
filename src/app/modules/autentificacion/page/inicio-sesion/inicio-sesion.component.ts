@@ -49,7 +49,7 @@ export class InicioSesionComponent {
       })
   }
 
-  // Función para vaciar el formulario
+  // Función para vaciar el formulario.
   limpiarInputs() {
     const inputs = {
       email: this.usuarioIngresado.email = '',
