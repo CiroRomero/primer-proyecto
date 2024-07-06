@@ -18,7 +18,7 @@ export class InicioSesionComponent {
   ) { }
 
 
-  // Importamos la interfaz de usuario e inicializamos vacío
+  // Importamos la interfaz de usuario e inicializamos vacío.
   usuarioIngresado: Usuario = {
     uid: '',
     nombre: '',
