@@ -28,7 +28,7 @@ export class InicioSesionComponent {
     password: ''
   }
 
-  // Función para el inicio de sesión
+  // Función para el inicio de sesión.
   async iniciarSesion() {
 
     const credenciales = {
