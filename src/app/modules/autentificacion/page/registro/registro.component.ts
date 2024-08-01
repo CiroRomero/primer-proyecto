@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
  //agregar un nuevo componente llamado "usuario"
-
+import { AuthService } from '../services/auth.service';
  //importamos la paqueteria de criptacion
 import * as CryptoJS from 'crypto-js';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro',
