@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Producto } from 'src/app/models/producto'
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,4 +30,11 @@ private productoCollection: AngularFirestoreCollection <Producto>
     })
    }
    //obtener productos
+   obtenerProducto(){
+    // snapshotChanges => toma una captura del estado de los datos
+    // pipe => fuinciona como una tuberia que retorna el nuevo arreglo de datos
+    // map => "mapea" o recorre esta nueva informacion
+    // a => reguarda la nueva informacion y la envia
+    return this.productoCollection.snapshotChanges().pipe(map(action => action.map (a => a.payload.doc.data())));
+   }
 }

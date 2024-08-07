@@ -26,7 +26,41 @@ export class TableComponent {
     alt: new FormControl('', Validators.required),
 
 })
+  precio: any;
 
   constructor(public serviciocrud: CrudService){}
+
+  ngOnInit(): void{
+    // subscribe => notifica constantemente los cambios del sistema
+    this.serviciocrud.obtenerProducto().subscribe(producto => {
+      this.coleccionProductos = producto;
+    })
+  }
+
+  async agreagarProducto(){
+    //validamos los valores del producto agregado
+    if(this.producto.valid){
+      let nuevoProducto: Producto ={
+        //idProducto no se toma porque es generado por la BD y no el usuario
+        idProducto: '',
+        //el resto es tomado con la informacion ingresada por el usuario
+        nombre: this.producto.value.nombre!,
+        precio: this.producto.value.precio!,
+        descripcion: this.producto.value.descripcion!,
+        categoria: this.producto.value.categoria!,
+        imagen: this.producto.value.imagen!,
+        alt: this.producto.value.alt!,
+        
+      }
+
+      await this.serviciocrud.CrearProducto(nuevoProducto)
+      .then(producto => {
+        alert("Ha agregado un nuevo producto con exito :) ");
+      })
+      .catch(error => {
+        alert("Hubo un problema al agregar un nuevo producto")
+      })
+    }
+  }
 
 }
