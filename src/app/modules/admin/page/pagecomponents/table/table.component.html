@@ -27,12 +27,16 @@
 
             <!--Acciones-->
             <td>
-                <button id="btn-edit" title="Editar" type="button" class="btn btn-online-warnig">
+                <!---->
+                <button id="btn-edit" title="Editar" type="button" class="btn btn-online-warnig"
+                data-bs-toggle="modal" data-bs-target="#editarProducto">
                     <mat-icon>edit</mat-icon>
                 </button>
             </td>
             <td>
-                <button id="btn-delete" title="Eliminar" type="button" class="btn btn-online-danger">
+                <!--mostrarBorrar() recibe como parametro el producto seleccionado-->
+                <button id="btn-delete" title="Eliminar" type="button" class="btn btn-online-danger" data-bs-toggle="modal"
+                data-bs-target="#eliminarProducto" (click)="mostrarBorrar(producto)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </td>
@@ -59,37 +63,38 @@
         </div>
 
         <!--Campo del Modal-->
-        <div [formGrup]="producto" class="modal-body">
+        <div [formGroup]="producto" class="modal-body">
             <div class="mb-3">
                 <label class="form-label">Ingrese el nombre del producto</label>
                 <input class="form-control" type="text" formControlName="nombre" placeholder="Ej: Medias de chanchitos">
             </div>
             <div class="mb-3">
-                <label class="form-label">Ingrese el nombre del producto</label>
-                <input class="form-control" type="number" formControlName="precio" placeholder="Ej: Medias de chanchitos">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Ingrese el nombre del producto</label>
+                <label class="form-label">Ingrese la descripcion del producto</label>
                 <input class="form-control" type="text" formControlName="descripcion" placeholder="Ej: Medias de chanchitos">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Ingrese el nombre del producto</label>
-                <input class="form-control" class="form-selec"  formControlName="categoria">
-                <option selected>Elija una opcion></option>
-                <option value="alimentacion">alimentacion</option>
-                <option value="indumentaria">indumentaria</option>
-                <option value="juguetes">juguetes</option>
+                <label class="form-label">Ingrese el prefcio del producto</label>
+                <input class="form-control" type="number" formControlName="precio" placeholder="Ej: Medias de chanchitos">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Ingrese el nombre del producto</label>
+                <label class="form-label">Seleccione la categoria del producto</label>
+                <select class="form-control" class="form-selec"  formControlName="categoria">
+                <option selected disabled>Elija una opcion</option>
+                <option value="alimentacion">alimentacion</option>
+                <option value="indumentaria">indumentaria</option>
+                <option value="juguetes">juguetes</option>
+            </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Ingrese la imagen del producto</label>
                 <input class="form-control" type="text" formControlName="imagen" placeholder="Ej: Medias de chanchitos">
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Ingrese el nombre del producto</label>
+                <label class="form-label">Ingrese texto alternativo del producto</label>
                 <input class="form-control" type="text" formControlName="alt" placeholder="Ej: Medias de chanchitos">
             </div>
             
@@ -98,8 +103,32 @@
 
         <!--Acciones del Modal-->
         <div class="modal-footer">
-            <button type="button" class="btn btn-online-succes" data-bs-dismiss="modal">Guardar</button>
-            <button type="button" class="btn btn-online-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="agregarProducto()">Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal para agregar producto-->
+<div class="modal fade" *ngIf="modalVisibleProducto" id="eliminarProducto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Esta seguro de eliminar el producto?</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{productoSeleccionado.nombre}}
+
+          <!--mostrar el usuario informe del producto que quiere eliminar-->
+          <img src="{{productoSeleccionado.imagen}}" alt="{{productoSeleccionado.alt}}">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-online-danger" data-bs-dismiss="modal" (click)="borrarProducto()">Eliminar</button>
+          <button type="button" class="btn btn-online-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <mat-icon>delete</mat-icon>
         </div>
       </div>
     </div>
